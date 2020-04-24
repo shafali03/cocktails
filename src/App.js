@@ -1,5 +1,5 @@
 import React from 'react';
-import { BroswerRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 // import pages
 import Home from "./pages/Home";
@@ -9,9 +9,19 @@ import Error from "./pages/Error";
 
 const App = () => {
   return (
-    <div>
-      <h1>app component</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
